@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BreakingBad.Models"
+             x:Class="BreakingBad.Views.DeathsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Deaths" FontSize="Title"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <CollectionView ItemsSource="{Binding Deaths}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Deaths">
+                        <Grid Margin="5" Padding="12,5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding death_id}" Grid.Column="0" Grid.RowSpan="6" FontSize="Title"/>
+
+                            <Label Text="{Binding death}"           Grid.Column="1" Grid.Row="0" FontSize="Title"/>
+                            <Label Text="{Binding cause}"           Grid.Column="1" Grid.Row="1" FontSize="Medium"/>
+                            <Label Text="{Binding responsible}"     Grid.Column="1" Grid.Row="2" FontSize="Medium"/>
+                            <Label Text="{Binding last_words}"      Grid.Column="1" Grid.Row="3" FontSize="Medium"/>
+                            <Label Text="{Binding season}"          Grid.Column="1" Grid.Row="4" FontSize="Medium"/>
+                            <Label Text="{Binding episode}"         Grid.Column="1" Grid.Row="5" FontSize="Medium"/>
+                            <Label Text="{Binding number_of_deaths}" Grid.Column="1" Grid.Row="6" FontSize="Medium"/>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

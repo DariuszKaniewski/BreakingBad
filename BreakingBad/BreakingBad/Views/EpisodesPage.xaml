@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:BreakingBad.ViewModels" 
+             xmlns:models="clr-namespace:BreakingBad.Models"
+             x:Class="BreakingBad.Views.EpisodesPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <Label Text="Episodes"  FontSize="Title"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <CollectionView ItemsSource="{Binding Episodes}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Episodes">
+                        <Grid Margin="5" Padding="12,5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                              
+                            
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding episode_id}" Grid.Column="0" Grid.RowSpan="6" FontSize="Title"/>
+
+                            <Label Text="{Binding title}" Grid.Column="1" Grid.Row="0" FontSize="Title"/>
+                            <Label Text="{Binding season}" Grid.Column="1" Grid.Row="1" FontSize="Medium"/>
+                            <Label Text="{Binding air_date}" Grid.Column="1" Grid.Row="2" FontSize="Medium"/>
+                            <Picker ItemsSource="{Binding characters}" Title="Characters" Grid.Column="1" Grid.Row="3" FontSize="Medium"/>
+                            <Label Text="{Binding episode}" Grid.Column="1" Grid.Row="4" FontSize="Medium"/>
+                            <Label Text="{Binding series}" Grid.Column="1" Grid.Row="5" FontSize="Medium"/>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

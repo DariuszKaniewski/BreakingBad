@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:BreakingBad.ViewModels" 
+             xmlns:models="clr-namespace:BreakingBad.Models"
+             x:DataType="viewmodels:CharactersViewModel"
+             x:Class="BreakingBad.Views.CharactersPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="characters"  FontSize="Title"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <CollectionView ItemsSource="{Binding Characters}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Characters">
+                        <Grid Margin="5" Padding="12,5" IsClippedToBounds="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Image WidthRequest="200" HeightRequest="300" Source="{Binding img}" Grid.Column="0" Grid.RowSpan="10">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Characters" NumberOfTapsRequired="2" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label  Text="{Binding char_id}" Grid.Column="1" Grid.Row="0" FontSize="Title" />
+
+
+
+
+
+                            <Label Text="{Binding name}" Grid.Column="1" Grid.Row="1" FontSize="Medium">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Characters" NumberOfTapsRequired="2" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Text="{Binding birthday}" Grid.Column="1" Grid.Row="2" FontSize="Medium"/>
+                            <Picker ItemsSource="{Binding occupation}" Title="Occupation" Grid.Column="1" Grid.Row="3" FontSize="Medium"/>
+                            <Label Text="{Binding status}" Grid.Column="1" Grid.Row="4" FontSize="Medium"/>
+                            <Label Text="{Binding nickname}" Grid.Column="1" Grid.Row="5" FontSize="Medium"/>
+                            <Picker ItemsSource="{Binding appearance}" Title="Appearance"  Grid.Column="1" Grid.Row="6" FontSize="Medium"/>
+                            <Label Text="{Binding portrayed}" Grid.Column="1" Grid.Row="7" FontSize="Medium"/>
+                            <Label Text="{Binding category}" Grid.Column="1" Grid.Row="8" FontSize="Medium"/>
+                            <Picker ItemsSource="{Binding better_call_saul_appearance}" Title="Better Call" Grid.Column="1" Grid.Row="9" FontSize="Medium"/>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
